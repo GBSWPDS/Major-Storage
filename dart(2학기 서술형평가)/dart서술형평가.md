@@ -199,54 +199,54 @@ void main() {
   선언
 ```dart
 void main(){
-	// Create
+	// Create: Set(집합)을 생성하고 문자열 데이터를 초기화합니다.
 	Set<String> data = {
 		'a', 'b', 'c'
 	};
 	
-	// Read
-	print(data);
+	// Read: Set의 내용을 출력합니다.
+	print(data);  // {a, b, c}
 	
-	// add
+	// add: Set에 새로운 원소 'd'를 추가합니다.
 	data.add('d');
-	print(data);
+	print(data);  // {a, b, c, d}
 	
-	// Delete
+	// Delete: Set에서 원소 'a'를 제거합니다.
 	data.remove('a');
-	print(data);
+	print(data);  // {b, c, d}
 }
 ```
 
 contains(원소 확인)
 ```dart
 void main(){
-	// Create
+	// Create: Set(집합)을 생성하고 문자열 데이터를 초기화합니다.
 	Set<String> data = {
 		'a', 'b', 'c'
 	};
 	
-	// Read
-	print(data);
+	// Read: Set의 내용을 출력합니다.
+	print(data);  // {a, b, c}
 	
-	// add
+	// add: Set에 새로운 원소 'd'를 추가합니다.
 	data.add('d');
-	print(data);
+	print(data);  // {a, b, c, d}
 	
-	// Delete
+	// Delete: Set에서 원소 'a'를 제거합니다.
 	data.remove('a');
-	print(data);
+	print(data);  // {b, c, d}
 	
-	// contains
-  print(data.contains('a'));  //  원소 단일
-  print(data.containsAll(     //  원소 집합
-    ['b', 'c']
-  ));
-  print(data.containsAll(
-    ['a', 'c']
-  ));
-  
-  // length
-  print(data.length);  // 길이
+	// contains: 특정 원소가 Set에 존재하는지 확인합니다.
+	print(data.contains('a'));  // false: 'a'는 Set에 존재하지 않음
+	print(data.containsAll(     // ['b', 'c'] 모든 원소가 Set에 존재하는지 확인
+		['b', 'c']
+	));  // true
+	print(data.containsAll(     // ['a', 'c'] 모든 원소가 Set에 존재하는지 확인
+		['a', 'c']
+	));  // false
+	
+	// length: Set의 크기(원소의 개수)를 출력합니다.
+	print(data.length);  // 3
 }
 ```
 
@@ -282,30 +282,29 @@ void main() {
     'Dave' : 1,
     'Jane' : 2,
     'Temmy' : 3
-  };
+  };  // String을 키로, int를 값으로 가지는 Map 생성
   print(myDict.runtimeType);  // type 출력
   myDict['Kate'] = 4;  // 새 키/값을 추가
   print(myDict);  // Map 출력
   
   // Read
-  print(myDict['Dave']);  
+  print(myDict['Dave']);  // 'Dave' 키에 해당하는 값 출력
   print(myDict.keys);     // 키 만 출력
   print(myDict.values);   // 값 만 출력
   print(myDict.entries);  // 키/값 모두 출력
   
   var myDictKeys = myDict.keys; // 리턴값 저장
-  print(myDictKeys.runtimeType);
+  print(myDictKeys.runtimeType);  // myDictKeys의 타입 출력
   List<String> myDictKeyList = myDictKeys.toList();  // 리스트로 변환
-  print(myDictKeyList);
+  print(myDictKeyList);  // 변환된 리스트 출력
   
   // Update
-  myDict['Dave'] = 7;
-  print(myDict['Dave']);
+  myDict['Dave'] = 7;  // 'Dave' 키의 값을 7로 업데이트
+  print(myDict['Dave']);  // 업데이트된 값 출력
   
   // Delete
-  myDict.remove('Dave');
-  print(myDict);
-
+  myDict.remove('Dave');  // 'Dave' 키-값 쌍 삭제
+  print(myDict);  // 삭제 후 Map 출력
 }
 ```
 응용
@@ -316,7 +315,7 @@ void main() {
     'Dave' : 1,
     'Jane' : 2,
     'Temmy' : 3
-  };
+  };  // 초기 Map 생성
   
   // contains
   print(myDict.containsKey('Dave'));  // 키 확인
@@ -326,12 +325,11 @@ void main() {
     'Korea' : 1,
     'Japen' : 2,
     'China' : 7,
-  };
+  };  // 두 번째 Map 생성
   myDict.addAll(myDict2);  // Map 일괄 추가
-  print(myDict);
+  print(myDict);  // 병합된 Map 출력
 }
 ```
-
 ### 05 객체 지향
 
 #### 1. 클래스 생성
