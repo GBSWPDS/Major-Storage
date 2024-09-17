@@ -165,28 +165,90 @@ void main() {
 ### 03 List, Map, Set
 
 #### 1. List 선언, 응용
+- 여러 값을 순서대로 저장하며 인덱스로 접근
+- **CRUD**: Create(생성), Read(읽기), Update(수정), Delete(삭제)
 
 ```dart
 void main() {
+  // Create
   List<String> myList = ['Dave', 'Jimmy'];  // 문자열 리스트 선언 및 초기화
   print(myList);  // ['Dave', 'Jimmy'] 출력
   myList.add('David');  // 리스트에 'David' 추가
   print(myList);  // ['Dave', 'Jimmy', 'David'] 출력
-
+  // Read
+  print(myList); // ['Dave', 'Jimmy', 'David'] 출력
   print(myList[0]);  // 첫 번째 요소 'Dave' 출력
-
+  // Update
   myList[0] = 'Jane';  // 첫 번째 요소를 'Jane'으로 변경
-
+  // Delete
   myList.remove('Jane');  // 'Jane' 요소 제거
   print(myList);  // ['Jimmy', 'David'] 출력
   myList.removeAt(1);  // 인덱스 1의 요소 제거
   print(myList);  // ['Jimmy'] 출력
-
+  //length
   print(myList.length);  // 리스트의 길이 1 출력
 }
 ```
 
 #### 2. Set 선언, 응용
+## **Set**
+
+- 집합의 성질을 지님
+- **CRUD**: Create(생성), Read(읽기), Update(수정), Delete(삭제)
+
+  선언
+```dart
+void main(){
+	// Create
+	Set<String> data = {
+		'a', 'b', 'c'
+	};
+	
+	// Read
+	print(data);
+	
+	// add
+	data.add('d');
+	print(data);
+	
+	// Delete
+	data.remove('a');
+	print(data);
+}
+```
+
+contains(원소 확인)
+```dart
+void main(){
+	// Create
+	Set<String> data = {
+		'a', 'b', 'c'
+	};
+	
+	// Read
+	print(data);
+	
+	// add
+	data.add('d');
+	print(data);
+	
+	// Delete
+	data.remove('a');
+	print(data);
+	
+	// contains
+  print(data.contains('a'));  //  원소 단일
+  print(data.containsAll(     //  원소 집합
+    ['b', 'c']
+  ));
+  print(data.containsAll(
+    ['a', 'c']
+  ));
+  
+  // length
+  print(data.length);  // 길이
+}
+```
 
 ##### ㄱ) intersection 교집합
 
@@ -209,6 +271,64 @@ void main() {
 
   var num4 = num1.difference(num2);  // num1에서 num2를 뺀 차집합
   print(num4);  // {1, 5} 출력
+}
+```
+#### 3. Map 선언, 응용
+선언
+```dart
+void main() {
+  // Create
+  Map<String, int> myDict = {
+    'Dave' : 1,
+    'Jane' : 2,
+    'Temmy' : 3
+  };
+  print(myDict.runtimeType);  // type 출력
+  myDict['Kate'] = 4;  // 새 키/값을 추가
+  print(myDict);  // Map 출력
+  
+  // Read
+  print(myDict['Dave']);  
+  print(myDict.keys);     // 키 만 출력
+  print(myDict.values);   // 값 만 출력
+  print(myDict.entries);  // 키/값 모두 출력
+  
+  var myDictKeys = myDict.keys; // 리턴값 저장
+  print(myDictKeys.runtimeType);
+  List<String> myDictKeyList = myDictKeys.toList();  // 리스트로 변환
+  print(myDictKeyList);
+  
+  // Update
+  myDict['Dave'] = 7;
+  print(myDict['Dave']);
+  
+  // Delete
+  myDict.remove('Dave');
+  print(myDict);
+
+}
+```
+응용
+```dart
+void main() {
+  // Create
+  Map<String, int> myDict = {
+    'Dave' : 1,
+    'Jane' : 2,
+    'Temmy' : 3
+  };
+  
+  // contains
+  print(myDict.containsKey('Dave'));  // 키 확인
+  print(myDict.containsValue(5));     // 값 확인
+  
+  Map<String, int> myDict2 = {
+    'Korea' : 1,
+    'Japen' : 2,
+    'China' : 7,
+  };
+  myDict.addAll(myDict2);  // Map 일괄 추가
+  print(myDict);
 }
 ```
 
